@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeriodicX</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2z?family=Inter:wght@400;700&display=swap');
+
+        
+    </style>
+    <link rel="stylesheet" href="home.css"></link>
+    
+</head>
+
+<body class="text-white flex items-center justify-center min-h-screen">
+
+    <div class="video-container">
+        <!-- Background image with zoom effect -->
+        <div class="video-background"
+            onerror="this.style.backgroundImage='url(https://placehold.co/1920x1080/1f2937/f3f4f6?text=Background+Not+Found)'">
+        </div>
+
+        <!-- Animated bubbles overlay -->
+        <div class="bubbles"></div>
+
+        <!-- Animated title and slogan -->
+        <div class="video-overlay">
+            <h1 class="title-text text-5xl sm:text-6xl md:text-7xl font-bold mb-4">PeriodicX</h1>
+            <p class="slogan-text text-lg sm:text-xl md:text-2xl font-light mb-8">Smart Element Learning</p>
+            <div class="flex flex-col space-y-4">
+
+                
+                <link rel="stylesheet" href="home3.html"></link>
+                <button class ="button"onclick="window.location.href='home3.html'">Get Started</button>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for the new page -->
+    <div id="new-page-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="text-2xl font-bold mb-4">Welcome to the Next Page!</h2>
+            <p class="text-gray-700">This is a simulated new page, showing how a click can trigger a new UI element in
+                this single-file application.</p>
+            <button id="close-modal"
+                class="mt-6 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const bubblesContainer = document.querySelector('.bubbles');
+        const clickButton = document.getElementById('click-button');
+        const newPageModal = document.getElementById('new-page-modal');
+        const closeModalButton = document.getElementById('close-modal');
+
+        const elements = ["H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar", "K", "Ca"];
+
+        function createBubble() {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            const size = Math.random() * 80 + 30;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}vw`;
+            bubble.style.animationDuration = `${duration}s`;
+            bubble.style.animationDelay = `${delay}s`;
+
+            const elementSymbol = document.createElement('span');
+            elementSymbol.classList.add('element-symbol');
+            const randomElement = elements[Math.floor(Math.random() * elements.length)];
+            elementSymbol.textContent = randomElement;
+
+            bubble.appendChild(elementSymbol);
+            bubblesContainer.appendChild(bubble);
+
+            setTimeout(() => {
+                bubble.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createBubble, 500); // Create a new bubble every 500ms
+
+        // Add event listener for the button
+        clickButton.addEventListener('click', () => {
+            newPageModal.style.display = 'flex';
+        });
+
+        // Add event listener to close the modal
+        closeModalButton.addEventListener('click', () => {
+            newPageModal.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

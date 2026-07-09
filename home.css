@@ -1,0 +1,175 @@
+
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0a09;
+            /* Set a dark background color for consistency */
+        }
+
+        /* Video container to hold the background and text */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* The image background, scaled to cover the entire container */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('PeriodicXhome.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+            /* Initially dimmed */
+            animation: background-effects 15s infinite ease-in-out alternate;
+        }
+
+        /* Keyframe animation for the background zoom and glow effect */
+        @keyframes background-effects {
+            0% {
+                transform: scale(1);
+                filter: brightness(0.5) blur(0px);
+            }
+
+            50% {
+                filter: brightness(1) blur(2px);
+            }
+
+            100% {
+                transform: scale(1.1);
+                filter: brightness(1.5) blur(0px);
+            }
+        }
+
+        /* Container for the text and logo that fade in */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animation for the text and logo */
+        @keyframes fadeInAndSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Styles for the title and slogan */
+        .title-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAndSlideUp 2s ease-out 1s forwards;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        .slogan-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAndSlideUp 2s ease-out 2s forwards;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Styles for the button */
+        .fade-in-button {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInAndSlideUp 2s ease-out 3s forwards;
+        }
+
+        /* Bubbles effect */
+        .bubbles {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px 5px rgba(237, 10, 10, 0.3);
+            border-radius: 50%;
+            animation: bubble-up-and-fade 20s linear infinite;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes bubble-up-and-fade {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateY(-50vh) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(0.5);
+                opacity: 0.8;
+            }
+        }
+
+        .element-symbol {
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-shadow: 0 0 5px #1099de, 0 0 10px #0796e8;
+        }
+
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            color: #0c0a09;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 90%;
+            width: 500px;
+            text-align: center;
+            position: relative;
+        }
+        .button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(18, 113, 236);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 20px;
+  }
+  .button:hover {
+    background-color: rgb(17, 17, 176);
+    font-weight:bolder;
+  }
